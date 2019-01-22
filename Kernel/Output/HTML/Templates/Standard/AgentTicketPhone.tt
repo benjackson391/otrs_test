@@ -56,6 +56,25 @@
 #                    </div>
 #                    <div class="Clear"></div>
 
+[% RenderBlockStart("DynamicField_Field1") %]
+                    <div class="Row Row_DynamicField_[% Data.Name | html %]">
+                        [% Data.Label %]
+                        <div class="Field">
+                            [% Data.Field %]
+                        </div>
+                        <div class="Clear"></div>
+                    </div>
+[% RenderBlockEnd("DynamicField_Field1") %]
+[% RenderBlockStart("DynamicField_Field2") %]
+                    <div class="Row Row_DynamicField_[% Data.Name | html %]">
+                        [% Data.Label %]
+                        <div class="Field">
+                            [% Data.Field %]
+                        </div>
+                        <div class="Clear"></div>
+                    </div>
+[% RenderBlockEnd("DynamicField_Field2") %]
+
                     <label class="" for="StaticField1"> [% Translate("StaticField1") | html %]:</label>
                     <div class="Field">
                         <input type="text" name="StaticField1" id="StaticField1">

@@ -7,7 +7,7 @@ no warnings 'redefine'; ## no critic
 use utf8;
 sub Load {
     my ($File, $Self) = @_;
-$Self->{'CurrentDeploymentID'} = '1';
+$Self->{'CurrentDeploymentID'} = '3';
 $Self->{'ACL::CacheTTL'} =  '3600';
 $Self->{'ACLKeysLevel1Change'} =  {
   'Possible' => 'Possible',
@@ -6498,7 +6498,7 @@ $Self->{'SMIME::FetchFromCustomer'} =  0;
 $Self->{'SOAP::Keep-Alive'} =  0;
 $Self->{'ScriptAlias'} =  'otrs/';
 $Self->{'Secure::DisableBanner'} =  0;
-$Self->{'SecureMode'} =  0;
+$Self->{'SecureMode'} =  '1';
 $Self->{'SendNoAutoResponseRegExp'} =  '(MAILER-DAEMON|postmaster|abuse)@.+?\\..+?';
 $Self->{'SendmailBcc'} =  '';
 $Self->{'SendmailModule'} =  'Kernel::System::Email::Sendmail';
@@ -7016,7 +7016,10 @@ $Self->{'Ticket::Frontend::AgentTicketPending'}->{'Subject'} =  '';
 $Self->{'Ticket::Frontend::AgentTicketPending'}->{'TicketType'} =  0;
 $Self->{'Ticket::Frontend::AgentTicketPending'}->{'Title'} =  0;
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'Body'} =  '';
-$Self->{'Ticket::Frontend::AgentTicketPhone'}->{'DynamicField'} =  {};
+$Self->{'Ticket::Frontend::AgentTicketPhone'}->{'DynamicField'} =  {
+  'Field1' => '1',
+  'Field2' => '1'
+};
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'HistoryComment'} =  '';
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'HistoryType'} =  'PhoneCallCustomer';
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'IsVisibleForCustomer'} =  '1';
