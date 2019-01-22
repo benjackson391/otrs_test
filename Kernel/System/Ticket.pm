@@ -579,6 +579,9 @@ sub TicketCreate {
     # check database undef/NULL (set value to undef/NULL to prevent database errors)
     $Param{ServiceID} ||= undef;
     $Param{SLAID}     ||= undef;
+    $Param{StaticField1} ||= undef;
+    $Param{StaticField2} ||= undef;
+
 
     # create db record
     return if !$Kernel::OM->Get('Kernel::System::DB')->Do(
@@ -587,14 +590,16 @@ sub TicketCreate {
                 user_id, responsible_user_id, ticket_priority_id, ticket_state_id,
                 escalation_time, escalation_update_time, escalation_response_time,
                 escalation_solution_time, timeout, service_id, sla_id, until_time,
-                archive_flag, create_time, create_by, change_time, change_by)
+                archive_flag, create_time, create_by, change_time, change_by,
+                staticfield1, staticfield2)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, 0, 0, 0, ?, ?, 0, ?,
-                current_timestamp, ?, current_timestamp, ?)',
+                current_timestamp, ?, current_timestamp, ?, ?, ?)',
         Bind => [
             \$Param{TN}, \$Param{Title}, \$Param{TypeID}, \$Param{QueueID},
             \$Param{LockID},     \$Param{OwnerID}, \$Param{ResponsibleID},
             \$Param{PriorityID}, \$Param{StateID}, \$Param{ServiceID},
             \$Param{SLAID}, \$ArchiveFlag, \$Param{UserID}, \$Param{UserID},
+            \$Param{StaticField1}, \$Param{StaticField2}
         ],
     );
 

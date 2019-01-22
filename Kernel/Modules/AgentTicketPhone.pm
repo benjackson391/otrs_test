@@ -61,7 +61,7 @@ sub Run {
         From Subject Body NextStateID TimeUnits
         Year Month Day Hour Minute
         NewResponsibleID ResponsibleAll OwnerAll TypeID ServiceID SLAID
-        StandardTemplateID FromChatID Dest
+        StandardTemplateID FromChatID Dest StaticField1 StaticField2
         )
         )
     {
@@ -1258,6 +1258,8 @@ sub Run {
             CustomerNo   => $CustomerID,
             CustomerUser => $SelectedCustomerUser,
             UserID       => $Self->{UserID},
+            StaticField1 => $GetParam{StaticField1},
+            StaticField2 => $GetParam{StaticField2},
         );
 
         # set ticket dynamic fields

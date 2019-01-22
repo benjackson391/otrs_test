@@ -56,6 +56,18 @@
 #                    </div>
 #                    <div class="Clear"></div>
 
+                    <label class="" for="StaticField1"> [% Translate("StaticField1") | html %]:</label>
+                    <div class="Field">
+                        <input type="text" name="StaticField1" id="StaticField1">
+                    </div>
+                    <div class="Clear"></div>
+
+                    <label class="" for="StaticField2"> [% Translate("StaticField2") | html %]:</label>
+                    <div class="Field">
+                        <input type="text" name="StaticField2" id="StaticField2">
+                    </div>
+                    <div class="Clear"></div>
+
                     [% INCLUDE "CustomerCompany/TicketCustomerIDSelection.tt" Required = 0 Readonly = Config("Ticket::Frontend::AgentTicketPhone::CustomerIDReadOnly") %]
 
 [% RenderBlockStart("TicketType") %]
