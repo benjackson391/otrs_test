@@ -1244,7 +1244,7 @@ sub TicketGet {
                     st.user_id, st.responsible_user_id, st.until_time, st.change_time, st.title,
                     st.escalation_update_time, st.timeout, st.type_id, st.service_id, st.sla_id,
                     st.escalation_response_time, st.escalation_solution_time, st.escalation_time, st.archive_flag,
-                    st.create_by, st.change_by
+                    st.create_by, st.change_by, staticfield1, staticfield2
                 FROM ticket st
                 WHERE st.id = ?',
             Bind  => [ \$Param{TicketID} ],
@@ -1282,6 +1282,8 @@ sub TicketGet {
 
             $Ticket{CreateBy} = $Row[24];
             $Ticket{ChangeBy} = $Row[25];
+            $Ticket{StaticField1} = $Row[26];
+            $Ticket{StaticField2} = $Row[27];
         }
 
         # use cache only when a ticket number is found otherwise a non-existant ticket

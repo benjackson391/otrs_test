@@ -7,7 +7,7 @@ no warnings 'redefine'; ## no critic
 use utf8;
 sub Load {
     my ($File, $Self) = @_;
-$Self->{'CurrentDeploymentID'} = '3';
+$Self->{'CurrentDeploymentID'} = '8';
 $Self->{'ACL::CacheTTL'} =  '3600';
 $Self->{'ACLKeysLevel1Change'} =  {
   'Possible' => 'Possible',
@@ -4475,6 +4475,26 @@ $Self->{'Frontend::Output::FilterText'}->{'AAAURL'} =  {
     'AgentTicketZoom' => '1'
   }
 };
+$Self->{'Frontend::Output::OutputFilterTextAutoLink'}->{'MSBulletins'} =  {
+  'RegExp' => [
+    'MS[^A-Za-z]{0,5}(\\d\\d).?(\\d{2,4})'
+  ],
+  'Templates' => {
+    'AgentTicketZoom' => '1'
+  },
+  'URL1' => {
+    'Description' => 'Microsoft Technet',
+    'Image' => 'http://www.microsoft.com/favicon.ico',
+    'Target' => '_blank',
+    'URL' => 'http://www.microsoft.com/technet/security/bulletin/MS<MATCH1>-<MATCH2>.mspx'
+  },
+  'URL2' => {
+    'Description' => 'Google',
+    'Image' => 'http://www.google.de/favicon.ico',
+    'Target' => '_blank',
+    'URL' => 'http://google.com/search?q=MS<MATCH1>-<MATCH2>'
+  }
+};
 $Self->{'Frontend::RichText'} =  '1';
 $Self->{'Frontend::RichText::DefaultCSS'} =  'font-family:Geneva,Helvetica,Arial,sans-serif; font-size: 12px;';
 $Self->{'Frontend::RichText::EnhancedMode'} =  0;
@@ -7017,8 +7037,11 @@ $Self->{'Ticket::Frontend::AgentTicketPending'}->{'TicketType'} =  0;
 $Self->{'Ticket::Frontend::AgentTicketPending'}->{'Title'} =  0;
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'Body'} =  '';
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'DynamicField'} =  {
+  ' ProcessManagementProcessID ' => '1',
   'Field1' => '1',
-  'Field2' => '1'
+  'Field2' => '1',
+  'ProcessManagementActivityID' => '1',
+  'Test1' => '1'
 };
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'HistoryComment'} =  '';
 $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'HistoryType'} =  'PhoneCallCustomer';
@@ -7136,6 +7159,8 @@ $Self->{'Ticket::Frontend::AgentTicketQueue'}->{'DefaultColumns'} =  {
   'CustomerID' => '2',
   'CustomerName' => '1',
   'CustomerUserID' => '1',
+  'DynamicField_Field1' => '2',
+  'DynamicField_Field2' => '2',
   'EscalationResponseTime' => '1',
   'EscalationSolutionTime' => '1',
   'EscalationTime' => '1',
@@ -7150,6 +7175,8 @@ $Self->{'Ticket::Frontend::AgentTicketQueue'}->{'DefaultColumns'} =  {
   'Sender' => '2',
   'Service' => '1',
   'State' => '2',
+  'StaticField1' => '2',
+  'StaticField2' => '2',
   'Subject' => '1',
   'TicketNumber' => '2',
   'Title' => '2',

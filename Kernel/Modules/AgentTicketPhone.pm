@@ -2618,14 +2618,16 @@ sub _MaskPhoneNew {
         # get the html strings form $Param
         my $DynamicFieldHTML = $Param{DynamicFieldHTML}->{ $DynamicFieldConfig->{Name} };
 
-        $LayoutObject->Block(
-            Name => 'DynamicField',
-            Data => {
-                Name  => $DynamicFieldConfig->{Name},
-                Label => $DynamicFieldHTML->{Label},
-                Field => $DynamicFieldHTML->{Field},
-            },
-        );
+        if ($DynamicFieldConfig->{Name} !~ /(Field1|Field2)/) {
+            $LayoutObject->Block(
+                Name => 'DynamicField',
+                Data => {
+                    Name  => $DynamicFieldConfig->{Name},
+                    Label => $DynamicFieldHTML->{Label},
+                    Field => $DynamicFieldHTML->{Field},
+                },
+            );
+        }
 
         # example of dynamic fields order customization
         $LayoutObject->Block(
