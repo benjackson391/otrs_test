@@ -55,6 +55,9 @@
 #                        <button type="button" onclick="$('#Template1').submit()" value="[% Translate("Example Template") | html %]">[% Translate("Example Template") | html %]</button>
 #                    </div>
 #                    <div class="Clear"></div>
+
+                    [% INCLUDE "CustomerCompany/TicketCustomerIDSelection.tt" Required = 0 Readonly = Config("Ticket::Frontend::AgentTicketPhone::CustomerIDReadOnly") %]
+
 [% RenderBlockStart("TicketType") %]
                     <label class="Mandatory" for="TypeID"><span class="Marker">*</span> [% Translate("Type") | html %]:</label>
                     <div class="Field">
@@ -131,8 +134,6 @@
 [% RenderBlockEnd("MultipleCustomerCounter") %]
                     </div>
                     <div class="Clear"></div>
-
-                    [% INCLUDE "CustomerCompany/TicketCustomerIDSelection.tt" Required = 0 Readonly = Config("Ticket::Frontend::AgentTicketPhone::CustomerIDReadOnly") %]
 
                     <label class="Mandatory" for="Dest"><span class="Marker">*</span> [% Translate("To queue") | html %]:</label>
                     <div class="Field">
