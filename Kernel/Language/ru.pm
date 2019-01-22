@@ -2161,7 +2161,7 @@ sub Data {
         'A template is a default text which helps your agents to write faster tickets, answers or forwards.' =>
             'Шаблон - текст по умолчанию, который помогает Вашим агентам писать более быстрые заявки, ответы или перенаправления.',
         'Don\'t forget to add new templates to queues.' => 'Не забудьте добавить новые шаблоны к очередям',
-        'Attachments' => 'Прикрепленные файлы',
+        'Attachments' => 'Вложения',
         'Delete this entry' => 'Удалить эту запись',
         'Do you really want to delete this template?' => 'Ва действительно желаете удалить этот шаблон',
         'A standard template with this name already exists!' => 'Стандартный шаблон с таким именем уже существует!',
@@ -2289,7 +2289,7 @@ sub Data {
         'Customer Information Center' => 'Информация о клиенте',
 
         # Template: AgentCustomerInformationCenterSearch
-        'Customer User' => 'Учетная запись клиента',
+        'Client' => 'Запись клиента',
 
         # Template: AgentCustomerTableView
         'Note: Customer is invalid!' => 'Замечание: неверный Клиент!',
